@@ -39,3 +39,24 @@ npm run dev
 ```
 
 The **run dev** command will build your component in the **/dist** directory and open a web server so that you can test your component with live refresh.
+
+
+
+
+
+Tutorial: install a new component in 1 step with unitool
+-----------
+
+If you are using the [universe framework](https://github.com/karayabin/universe-snapshot)
+you can do all the steps described above with 1 line of code.
+This requires a setup (todo only once for all) described in the [SvelteTemplateBuilder planet](https://github.com/lingtalfi/SvelteTemplateBuilder).
+
+With that builder tool installed (and assuming the alias created), just type the following:
+
+```bash 
+sveltecompo MyTestComponent my-test-component
+```
+
+
+
+

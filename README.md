@@ -47,7 +47,7 @@ The **run dev** command will build your component in the **/dist** directory and
 The test rig
 ------------
 
-The `npm run dev` that we did in last step is fine, but it just displays the component, and we cannot really test it.
+The `npm run dev` that we did in last step is fine, but it just displays the component, and we cannot really test it (i.e. play with the code).
 
 In the following steps, we will create a test page that will actually use our component and that we will be able
 to modify live. This is probably this setup that we will use while creating our component, or when we want to extend its functionality. 

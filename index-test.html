@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <title>Svelte app</title>
+    <script defer src='dist/bundle-test.js'></script>
+    <link rel="stylesheet" href="dist/bundle-test.css">
+</head>
+
+<body>
+
+<h1>My test app</h1>
+
+<div id="my-component"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        new MyComponentTest({
+            target: document.getElementById("my-component"),
+        });
+    });
+</script>
+
+</body>
+</html>

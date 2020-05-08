@@ -1,11 +1,7 @@
 .DS_Store
 node_modules
 /dist/
+/test/
 private/
-.DS_Store
-.idea/
-.git/
-private/
-.DS_Store
 .idea/
 .git/

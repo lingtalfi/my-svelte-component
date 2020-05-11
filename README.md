@@ -86,7 +86,6 @@ With that builder tool installed (and assuming the alias created), just type the
 sveltecompo MyTestComponent my-test-component
 ```
 
-(test rig not implemented yet, will be there soon...)
 
 
 

@@ -1,1 +1,1 @@
-I'm a svelte component
+I'm a svelte components

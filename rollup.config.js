@@ -3,17 +3,16 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
-import { sass } from 'svelte-preprocess-sass';
-
-
+import sveltePreprocess from 'svelte-preprocess';
+import typescript from '@rollup/plugin-typescript';
 
 
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-	input: 'src/main.js', // (1)
+	input: 'src/main.ts', // (1)
 	output: {
-		sourcemap: true,
+		sourcemap: !production,
 		format: 'iife',
 		name: 'app',
 		file: 'dist/bundle.js' // (2)
@@ -25,11 +24,9 @@ export default {
 			// we'll extract any component CSS out into
 			// a separate file - better for performance
 			css: css => {
-				css.write('dist/bundle.css'); // (3)
+				css.write('bundle.css'); // (3)
 			},
-			preprocess: {
-				style: sass(),
-			},
+			preprocess: sveltePreprocess(),
 		}),
 
 		// If you have external dependencies installed from
@@ -39,15 +36,22 @@ export default {
 		// https://github.com/rollup/plugins/tree/master/packages/commonjs
 		resolve({
 			browser: true,
+			// Helps to prevent bundling the same package multiple times if package is imported from dependencies.
 			dedupe: ['svelte']
 		}),
+		
 		commonjs(),
+
+		typescript({
+			sourceMap: !production,
+			inlineSources: !production
+		}),
 
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
 		!production && serve(),
 
-		// Watch the `public` directory and refresh the
+		// Watch the current directory and refresh the
 		// browser on changes when not in production
 		!production && livereload('.'), // (4)
 
